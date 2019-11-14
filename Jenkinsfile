@@ -8,5 +8,13 @@ pipeline {
                 }
             }
         }
+        stage('Test') {
+            steps {
+                withMaven(maven: 'maven-installation', mavenSettingsConfig: 'mavensettingsxml') {
+                    bat 'mvn test'
+                }
+            }
+        }
     }
+
 }
