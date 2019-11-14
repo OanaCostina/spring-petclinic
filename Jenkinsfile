@@ -3,11 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //sh 'echo "Hello World"'
-                echo 'Hello again'
+                withMaven(maven: 'maven_installation', mavenSettingsConfig: 'mavensettingsxml.xml') {
+                    bat 'mvn -DskipTests clean package'
             }
         }
     }
 }
-
-
